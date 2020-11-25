@@ -27,8 +27,7 @@ public class Image {
     @Column(name = "width")
     private Integer width;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "image")
-    private Byte[] image;
+    // image encoded as string
+    @Column(name = "image", length = 2000000)
+    private String image;
 }

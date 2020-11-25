@@ -37,7 +37,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("ad/{adId}/images")
+    @GetMapping("ads/{adId}/images")
     public ResponseEntity<AdImagesDto> getAdImages(@PathVariable Integer adId) {
         try {
             return new ResponseEntity<>(new AdImagesDto(imageService.getAdImages(adId)), HttpStatus.OK);
@@ -46,7 +46,7 @@ public class ImageController {
         }
     }
 
-    @PutMapping("ad/{adId}/images")
+    @PutMapping("ads/{adId}/images")
     public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
         try {
             return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
@@ -55,7 +55,7 @@ public class ImageController {
         }
     }
 
-    @DeleteMapping("ad/{adId}/images")
+    @DeleteMapping("ads/{adId}/images")
     public ResponseEntity<Void> deleteAdImages(@PathVariable Integer adId) {
         try {
             imageService.deleteAdImages(adId);
@@ -66,9 +66,9 @@ public class ImageController {
     }
 
     @PostMapping("image")
-    public ResponseEntity<Integer> saveImage(@RequestBody Image image) {
+    public ResponseEntity<Image> saveImage(@RequestBody Image image) {
         try {
-            return new ResponseEntity<>(imageService.saveImage(image).getId(), HttpStatus.OK);
+            return new ResponseEntity<>(imageService.saveImage(image), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
