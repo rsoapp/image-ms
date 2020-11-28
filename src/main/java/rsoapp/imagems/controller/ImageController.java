@@ -3,7 +3,6 @@ package rsoapp.imagems.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rsoapp.imagems.config.Config;
 import rsoapp.imagems.model.dto.AdImagesDto;
 import rsoapp.imagems.model.entity.Image;
 import rsoapp.imagems.service.ImageService;
@@ -17,7 +16,7 @@ public class ImageController {
 
     private final ImageService imageService;
 
-    public ImageController(ImageService imageService, Config config) {
+    public ImageController(ImageService imageService) {
         this.imageService = imageService;
     }
 

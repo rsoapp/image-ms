@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "variables")
+//@ConfigurationProperties(prefix = "variables")
 public class Config {
 
     private String var1;
