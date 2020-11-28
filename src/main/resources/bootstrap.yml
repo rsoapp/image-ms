@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: image-ms
+  cloud:
+    consul:
+      host: localhost
+      config:
+        fail-fast: false
+        format: yaml

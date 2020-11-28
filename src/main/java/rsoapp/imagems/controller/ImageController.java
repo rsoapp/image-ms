@@ -1,9 +1,9 @@
 package rsoapp.imagems.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rsoapp.imagems.config.Config;
 import rsoapp.imagems.model.dto.AdImagesDto;
 import rsoapp.imagems.model.entity.Image;
 import rsoapp.imagems.service.ImageService;
@@ -15,10 +15,13 @@ import java.util.Optional;
 @RequestMapping("/")
 public class ImageController {
 
-    @Autowired
-    private ImageService imageService;
+    private final ImageService imageService;
 
-    @GetMapping("images")
+    public ImageController(ImageService imageService, Config config) {
+        this.imageService = imageService;
+    }
+
+    @GetMapping("image")
     public ResponseEntity<List<Image>> getAllImages() {
         try {
             List<Image> images = imageService.getAllImages();
