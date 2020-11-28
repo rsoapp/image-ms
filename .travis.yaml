@@ -1,0 +1,6 @@
+language: java
+dist: bionic
+jdk:
+  - openjdk11
+script:
+  - mvn clean package -U
