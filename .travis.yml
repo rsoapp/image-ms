@@ -1,22 +1,22 @@
 sudo: required
 services:
-  - docker
+- docker
 language: java
 dist: bionic
 jdk:
-  - openjdk11
+- openjdk11
 cache:
   directories:
-    - "$HOME/.m2"
+  - "$HOME/.m2"
 env:
   global:
-    - DOCKER_IMAGE=rsolinux/image-ms:1.0.0-SNAPSHOT-$TRAVIS_JOB_NUMBER
-    - secure: J1eUH4zVAMUOoiX2VCnyub/1vRMz1yOhoHAWDfiMW8SUO4GO3rOAVPxxMgKYU+Iu9Hys6hGCF5joM3dJJGOG3piGY8aq0sKG/qIGs39zlEqGsEIEUnnOId8z4Es2XauOv1f2BBv6JGhhCmIj8NdMVWaS/HnL0ghGgHVDontZ2Dbk2Zlh5UDqH4EKXm/zRaZgXRjG0d08D4yfTsAd3EjSsD+p3OcnpaGYrP+zH6V2eStRBo2bUXRXISZd1ldHiy1czk2HMlfSkR4Pu5Z4dKX5+zgNI+5MALPViQtSxC9W7p6/ju/UvXU9soq96aA1Xfw0U2i70tE1YzNK7QDdRB2gsbsjYj1o84R/QVqF7rr2g34H5pVjsLpb/sZRSa4m6JbbJjT9f6ZYOT54q0BT41/ofDmdsHFPbvIfAyW7amB6MulnEGkyQZX4Df6uHkg1BxaMlp/HcDJDqUv4N+bLF8/uXxyvepi9P1t6hj3nhT7HTfLjapqm4Cwb1y5bUP8j3C6wwajCNFRsDUgCss8htbj5GPCsY5nuRb8aifAQZ77DhuKSf0kpPff0JsLPvhffwXUTqV6J9j6Gtj+yWgJYjlYBq/CojM0lY6myNCPAV3N0BkRVslt8lH3tMgpsfjBA3iadd3+IxCSQeFZGozSbtHbGJFxDKZ08FVcSC5INKWizIFk=
-    - secure: OVNfbLSNcc8kydgKONz/PCJR6m0oF6t8hxdzI2Urh3a2X9N/nYmbETClKojWXLXGO2fmR+bfAQajzBkxTXjwWQ6bAD0wktpqtsaMwqu5N9bLZe4ZcQR7+1qhCSGqAXf+BTUj83n+CCvqunZV300hodxCS7c/VB9Npbd26ttdQwvNxcNI1KhrG8pyGK/ekmztXhLEGd1Sk2fnKRBsThANHKxtWW8fqAQJX7Pff7f9Z1Zoe4CypR5cROHOEuhos33Rm2sizajKF9QGzP6C8YXIwKZgQ6gq8pzU7l+tMI5s47pM0K4Z4opu+Clqqk/X+8Pw8NZfbsruPk3B2U1VPAAByXaYnfWjq+3UiThn1I5KUkOipDAh+e7lXFDYQRwCuz2ztfAaqfyDrfXwGfMtDodgPcYtau7nwi46t5HqCUVADHqfWfyuyJSlKCCF5IydP4pCiebmx7rZ4aV7w/YwN7OQf5w8IqZURSzR9y2d4WOkWCt4XM5Y+bZ/Os6N9hWJzHE8GfRrjMnX3MYPmtZQQuxxCc9raV509FXSaIOTVqSvo6ER7oOQeM/SHFmdMQgHIYS1HLmSGIST/L06xQmvUK8qfnIVuJnC3eHRp2hq0Fs4/ibRiLEPIGTeZsIRzfj+KdEZ5Hnn8m01eldPPBRtzTs4BjjJoeqbAhzat4n17QR9maA=
+  - DOCKER_IMAGE=rsolinux/image-ms:1.0.0-SNAPSHOT-$TRAVIS_JOB_NUMBER
+  - secure: WkyGJnZMPTCohO6xk/HyAohlcsXya2wSyIwtqnQYqTscOUPx2WRqRC5otbAM7orTIk2JfQAen9nx6AhsKX8RNTvjmQY+E0flyJPzUrq7yJeXpyK/QWKAbEL+qp+cASHaPE452oJKqiFtcBOMLBDUq5R1bWaNMe3mjhqOL2qZgwn3P9UBohjnuSbPM9YxlXHQDhAldIHvf2ylEdUtpgDm0FCJwrZoZN+R1dzCirJw8U9kfDyCpJblPXblHKlGYPz4Ga6ZF5O+zI9oTefldHOotUsjSNQzB9hs1AqHpLuQMfmwCnDLqvIKhLW7i8NZCchHUeUsvL9ADRkTtgt6dKy66LSVzB/k2F7y1QqUxkcLT4hKdCvDQRaO+Pu3u2Cy1LJSm4AHp/YDwAb2s1fae27MXrGO3gSTJw40fmDZ606bKvDszHjO/KNUWdPwSYzY0Qy6wnY2R1X/r81meKGm8lGc3ngf8/Ib+BLsAGM64vKhcI4y1ZNJ+kBR6CikQAdUjyE8bc9SdLCtWQu5QAtHLTFuMigSJcoheY8VuWiNgMQZuXzs0log1EY3py6uwwxng3/JPl6dvr0p4ZWCW6wt6DXGwUu1ysXpPGHXvsfZjZwqJyn7Sonuo763QDiE1rULsxliAFwiN+suXVldAVmAPBws0Gm9y6EQ7wobzJH2V6sks3A=
+  - secure: C8LGcVknEFJIJj8ZZlamy6WTmZZp533nw9Sn22XUWMjVIjUt0a1U4QqOcDGvZsyszzpFJ+vJEyiBKP5JCjuGM4MYipOui6WfEsDPJAcmCI+vST+IT+s2hwYSsJelHydQuUZa8I4tYvSfB9aE2k2KgYzKQO4dKyZqeYy74THsyHWJGWbDG+cZus0JQVAqXQcrzTBLRmK7ML6c7i92PVckq1GHrFF2OVBOVOsPWmO+MlZoy9eZCCAnx3M/ahmGWHBs+FedNBMknY8YPPVhemclJitnVGG0Xc1WsKifRlS+6sKXVRiB8t2riG7BV6v7RuYMvunSnbWcr06nwbmyKHs1NInvs7rdBVniJJv9YkdYI003eSY5IZQlRa0Zq/w5FCBZ9jhvYRY4zdL20aIq7iEKqhM3of12vHSUxfVkBg3K9O34hIJhwPRsOLsIvBSrlm/DYF0MP6dx40Mvdx4lypyuDlOUf8KQWjUUdI01BPf0vkimkVYSOqourfzZGvT9gS2dxIzgOelp02Z67z1dqRd3nznstHLe+8pWnTq8jl7aSB7mFSy9hIPtwBvLJmiZmaG5kOmu1ZQOvGwyurBQ5IQ+yOpKGMv6pgPXF2c4BpLCCD5GZPO51EwPSXHz1IdJ+yiLfROC4bM/EdZps4RybGEZsDOeNCOCrlFAzdC/aX9Ifpg=
 script:
-  - mvn clean package -U -DskipTests
-  - docker build -t "$DOCKER_IMAGE" .
+- mvn clean package -U -DskipTests
+- docker build -t "$DOCKER_IMAGE" .
 after_success:
-  - cat "$DOCKER_PASSWORD"
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push "$DOCKER_IMAGE"
+- cat "$DOCKER_PASSWORD"
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push "$DOCKER_IMAGE"
