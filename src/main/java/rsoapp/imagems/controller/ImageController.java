@@ -1,23 +1,37 @@
 package rsoapp.imagems.controller;
 
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rsoapp.imagems.model.dto.AdImagesDto;
+import rsoapp.imagems.model.dto.Info;
 import rsoapp.imagems.model.entity.Image;
 import rsoapp.imagems.service.ImageService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/v1/")
 public class ImageController {
 
     private final ImageService imageService;
 
     public ImageController(ImageService imageService) {
         this.imageService = imageService;
+    }
+
+    @GetMapping("info")
+    public Info getAppInfo() {
+        String[] clani = {"ms1004"};
+        String opis_projekta = "Moj projekt implementira oglasnik (za glasbenike). Uporabniki lahko objavljajo, urejajo in pregledujejo oglase ter si med seboj lahko pošiljajo sporočila.";
+        String[] mikrostoritve = {"TODO"};
+        String[] github = {"https://github.com/rsoapp/image-ms"};
+        String[] travis = {"https://travis-ci.org/github/rsoapp/image-ms"};
+        String[] dockerhub = {"https://hub.docker.com/repository/docker/rsolinux/image-ms"};
+        return new Info(clani, opis_projekta, mikrostoritve, github, travis, dockerhub);
     }
 
     @GetMapping("image")
