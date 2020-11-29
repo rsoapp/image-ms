@@ -9,7 +9,6 @@ import rsoapp.imagems.model.dto.Info;
 import rsoapp.imagems.model.entity.Image;
 import rsoapp.imagems.service.ImageService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,8 +25,8 @@ public class ImageController {
     @GetMapping("info")
     public Info getAppInfo() {
         String[] clani = {"ms1004"};
-        String opis_projekta = "Moj projekt implementira oglasnik (za glasbenike). Uporabniki lahko objavljajo, urejajo in pregledujejo oglase ter si med seboj lahko pošiljajo sporočila.";
-        String[] mikrostoritve = {"TODO"};
+        String opis_projekta = "Moj projekt implementira oglasnik za glasbenike. Uporabniki lahko objavljajo, urejajo in pregledujejo oglase ter si med seboj lahko pošiljajo sporočila.";
+        String[] mikrostoritve = {"http://35.239.153.130:8080/v1/image"};
         String[] github = {"https://github.com/rsoapp/image-ms"};
         String[] travis = {"https://travis-ci.org/github/rsoapp/image-ms"};
         String[] dockerhub = {"https://hub.docker.com/repository/docker/rsolinux/image-ms"};
