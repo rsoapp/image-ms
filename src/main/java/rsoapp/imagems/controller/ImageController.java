@@ -29,7 +29,7 @@ public class ImageController {
         String[] mikrostoritve = {"http://35.239.153.130:8080/v1/image"};
         String[] github = {"https://github.com/rsoapp/image-ms"};
         String[] travis = {"https://travis-ci.org/github/rsoapp/image-ms"};
-        String[] dockerhub = {"https://hub.docker.com/repository/docker/rsolinux/image-ms"};
+        String[] dockerhub = {"https://hub.docker.com/r/rsolinux/image-ms/tags"};
         return new Info(clani, opis_projekta, mikrostoritve, github, travis, dockerhub);
     }
 
