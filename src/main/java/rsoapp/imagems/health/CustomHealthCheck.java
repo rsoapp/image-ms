@@ -13,11 +13,6 @@ public class CustomHealthCheck implements HealthIndicator {
 
     @Override
     public Health health() {
-        if (state.equals("UP")) {
-            return Health.up().build();
-        }
-        else {
-            return Health.down().build();
-        }
+        return state.equals("UP") ? Health.up().build() : Health.down().build();
     }
 }
