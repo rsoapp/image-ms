@@ -48,25 +48,6 @@ public class ImageController {
         }
     }
 
-    @PutMapping("ads/{adId}/images")
-    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
-        try {
-            return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @DeleteMapping("ads/{adId}/images")
-    public ResponseEntity<Void> deleteAdImages(@PathVariable Integer adId) {
-        try {
-            imageService.deleteAdImages(adId);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     @PostMapping("image")
     public ResponseEntity<Image> saveImage(@RequestBody Image image) {
         try {
@@ -86,10 +67,29 @@ public class ImageController {
         }
     }
 
+    @PutMapping("ads/{adId}/images")
+    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
+        try {
+            return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @DeleteMapping("image/{imageId}")
     public ResponseEntity<Void> deleteImage(@PathVariable Integer imageId) {
         try {
             imageService.deleteImage(imageId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("ads/{adId}/images")
+    public ResponseEntity<Void> deleteAdImages(@PathVariable Integer adId) {
+        try {
+            imageService.deleteAdImages(adId);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
