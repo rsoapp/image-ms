@@ -13,13 +13,13 @@ spec:
         app: image-ms
     spec:
       containers:
-        - image: rsolinux/image-ms:1.0.0-SNAPSHOT-12.1
+        - image: rsolinux/image-ms:1.0.0-SNAPSHOT-14.1
           name: image-ms
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://otto.db.elephantsql.com:5432/jrickhfw
+              value: jdbc:postgresql://suleiman.db.elephantsql.com:5432/pblmowui
             - name: SPRING_DATASOURCE_USERNAME
-              value: jrickhfw
+              value: pblmowui
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -33,15 +33,8 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: server
-            initialDelaySeconds: 30
+            initialDelaySeconds: 90
             periodSeconds: 3
-            failureThreshold: 3
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: server
-            initialDelaySeconds: 300
-            periodSeconds: 30
             failureThreshold: 3
 
 ---
