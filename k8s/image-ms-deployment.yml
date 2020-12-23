@@ -13,7 +13,7 @@ spec:
         app: image-ms
     spec:
       containers:
-        - image: rsolinux/image-ms:1.0.0-SNAPSHOT-15.1
+        - image: rsolinux/image-ms:1.0.0-SNAPSHOT-16.1
           name: image-ms
           env:
             - name: SPRING_DATASOURCE_URL
@@ -31,16 +31,16 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /actuator/health/liveness
+              path: /actuator/health
               port: server
-            initialDelaySeconds: 90
+            initialDelaySeconds: 30
             periodSeconds: 3
             failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: server
-            initialDelaySeconds: 90
+            initialDelaySeconds: 30
             periodSeconds: 3
             failureThreshold: 3
 
