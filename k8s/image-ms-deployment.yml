@@ -13,7 +13,7 @@ spec:
         app: image-ms
     spec:
       containers:
-        - image: rsolinux/image-ms:1.0.0-SNAPSHOT-16.1
+        - image: rsolinux/image-ms:latest
           name: image-ms
           env:
             - name: SPRING_DATASOURCE_URL
@@ -23,7 +23,7 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: pg-pass
+                  name: image-pg-pass
                   key: password
           ports:
             - containerPort: 8080
