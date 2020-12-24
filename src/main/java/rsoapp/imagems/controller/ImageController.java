@@ -3,6 +3,7 @@ package rsoapp.imagems.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import rsoapp.imagems.model.dto.AdImagesDto;
 import rsoapp.imagems.model.entity.Image;
 import rsoapp.imagems.service.ImageService;
@@ -20,7 +21,7 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @GetMapping("image")
+    @GetMapping("images")
     public ResponseEntity<List<Image>> getAllImages() {
         try {
             List<Image> images = imageService.getAllImages();
@@ -30,7 +31,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("image/{imageId}")
+    @GetMapping("images/{imageId}")
     public ResponseEntity<Optional<Image>> getImageById(@PathVariable Integer imageId) {
         try {
             return new ResponseEntity<>(imageService.getImageById(imageId), HttpStatus.OK);
@@ -48,16 +49,22 @@ public class ImageController {
         }
     }
 
-    @PostMapping("image")
-    public ResponseEntity<Image> saveImage(@RequestBody Image image) {
+
+
+
+    @PostMapping("ads/{adId}/images")
+    public ResponseEntity<Image> uploadImage(@PathVariable Integer adId, @RequestParam("imageFile") MultipartFile imageFile) {
         try {
-            return new ResponseEntity<>(imageService.saveImage(image), HttpStatus.OK);
+            return new ResponseEntity<>(imageService.saveImage(adId, imageFile), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("image/{imageId}")
+
+
+
+    @PutMapping("images/{imageId}")
     public ResponseEntity<Void> updateImage(@PathVariable Integer imageId, @RequestBody Image imageData) {
         try {
             imageService.updateImage(imageId, imageData);
@@ -67,16 +74,19 @@ public class ImageController {
         }
     }
 
-    @PutMapping("ads/{adId}/images")
-    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
-        try {
-            return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PutMapping("ads/{adId}/images")
+//    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
+//        try {
+//            return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
-    @DeleteMapping("image/{imageId}")
+
+
+
+    @DeleteMapping("images/{imageId}")
     public ResponseEntity<Void> deleteImage(@PathVariable Integer imageId) {
         try {
             imageService.deleteImage(imageId);

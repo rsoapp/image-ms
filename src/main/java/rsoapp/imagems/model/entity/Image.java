@@ -18,16 +18,16 @@ public class Image {
     @Column(name = "ad_id")
     private Integer adId;
 
-    @Column(name = "consecutive_number")
-    private Integer consecutiveNumber;
-
     @Column(name = "height")
     private Integer height;
 
     @Column(name = "width")
     private Integer width;
 
-    // image encoded as string
-    @Column(name = "image", length = 2000000)
-    private String image;
+//     image encoded as string
+//    @Column(name = "image", length = 2000000)
+//    private String image;
+
+    @Column(name = "picByte", length = 1000)
+    private byte[] imageBytes;
 }
