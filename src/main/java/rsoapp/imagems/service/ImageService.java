@@ -9,6 +9,7 @@ import rsoapp.imagems.repository.ImageRepository;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,27 +65,16 @@ public class ImageService {
         }
     }
 
-//    public AdImagesDto updateAdImages(Integer adId, AdImagesDto adImagesDto) {
-//        List<Image> adImages = adImagesDto.getImages();
-//        for(Image image : adImages) {
-//            Image adImage;
-//            if(image.getId() != null) {
-//                Optional<Image> queriedImage = getImageById(image.getId());
-//                adImage = queriedImage.orElseGet(Image::new);
-//                adImage.setId(image.getId());
-//                adImage.setAdId(adId);
-//                adImage.setHeight(image.getHeight());
-//                adImage.setWidth(image.getWidth());
-//                adImage.setImageBytes(image.getImageBytes());
-//                saveImage(adImage);
-//            }
-//            else {
-//                image.setAdId(adId);
-//                saveImage(image);
-//            }
-//        }
-//        return new AdImagesDto(adImages);
-//    }
+    public AdImagesDto updateAdImages(Integer adId, List<MultipartFile> adImageFiles) throws IOException {
+        deleteAdImages(adId);
+        List<Image> updatedImages = new ArrayList<>();
+
+        for(MultipartFile imageFile : adImageFiles) {
+            updatedImages.add(saveImage(adId, imageFile));
+        }
+
+        return new AdImagesDto(updatedImages);
+    }
 
 
 

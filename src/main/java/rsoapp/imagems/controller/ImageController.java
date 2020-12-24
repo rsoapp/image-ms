@@ -74,14 +74,14 @@ public class ImageController {
         }
     }
 
-//    @PutMapping("ads/{adId}/images")
-//    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody AdImagesDto adImagesDto) {
-//        try {
-//            return new ResponseEntity<>(imageService.updateAdImages(adId, adImagesDto), HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
+    @PutMapping("ads/{adId}/images")
+    public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody List<MultipartFile> adImageFiles) {
+        try {
+            return new ResponseEntity<>(imageService.updateAdImages(adId, adImageFiles), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 
