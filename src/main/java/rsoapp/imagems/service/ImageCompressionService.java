@@ -28,8 +28,8 @@ public class ImageCompressionService {
             outputStream.close();
         } catch (Exception ignored) {}
 
-        System.out.println("Original Image Byte Size - " + imageBytes.length);
-        System.out.println("Compressed Image Byte Size - " + outputStream.toByteArray().length);
+//        System.out.println("Original Image Byte Size - " + imageBytes.length);
+//        System.out.println("Compressed Image Byte Size - " + outputStream.toByteArray().length);
 
         return outputStream.toByteArray();
     }
