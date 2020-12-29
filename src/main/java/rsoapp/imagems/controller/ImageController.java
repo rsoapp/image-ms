@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/v1/")
+@RequestMapping("/v1/images/")
 public class ImageController {
 
     private final ImageService imageService;
@@ -21,7 +21,7 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @GetMapping("images")
+    @GetMapping
     public ResponseEntity<List<Image>> getAllImages() {
         try {
             List<Image> images = imageService.getAllImages();
@@ -31,7 +31,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("images/{imageId}")
+    @GetMapping("{imageId}")
     public ResponseEntity<Optional<Image>> getImageById(@PathVariable Integer imageId) {
         try {
             return new ResponseEntity<>(imageService.getImageById(imageId), HttpStatus.OK);
@@ -40,7 +40,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("images/ad/{adId}")
+    @GetMapping("ad/{adId}")
     public ResponseEntity<AdImagesDto> getAdImages(@PathVariable Integer adId) {
         try {
             return new ResponseEntity<>(new AdImagesDto(imageService.getAdImages(adId)), HttpStatus.OK);
@@ -52,7 +52,7 @@ public class ImageController {
 
 
 
-    @PostMapping("images/ad/{adId}")
+    @PostMapping("ad/{adId}")
     public ResponseEntity<Image> uploadImage(@PathVariable Integer adId, @RequestParam("imageFile") MultipartFile imageFile) {
         try {
             return new ResponseEntity<>(imageService.saveImage(adId, imageFile), HttpStatus.OK);
