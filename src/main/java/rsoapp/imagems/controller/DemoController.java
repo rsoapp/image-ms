@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rsoapp.imagems.health.CustomHealthCheck;
 
 @RestController
-@RequestMapping("/v1/demo/")
+@RequestMapping("/v1/images/")
 public class DemoController {
 
     private final CustomHealthCheck customHealthCheck;
