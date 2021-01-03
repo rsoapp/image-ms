@@ -16,6 +16,8 @@ spec:
         - image: rsolinux/image-ms:latest
           name: image-ms
           env:
+            - name: SERVER_PORT
+              value: "8080"
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://suleiman.db.elephantsql.com:5432/pblmowui
             - name: SPRING_DATASOURCE_USERNAME
