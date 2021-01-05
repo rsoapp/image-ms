@@ -44,7 +44,8 @@ public class ImageService {
         BufferedImage bimg = ImageIO.read(imageFile.getInputStream());
         image.setHeight(bimg.getHeight());
         image.setWidth(bimg.getWidth());
-        image.setImageBytes(imageCompressionService.compressBytes(imageFile.getBytes()));
+//        image.setImageBytes(imageCompressionService.compressBytes(imageFile.getBytes()));
+        image.setImageBytes(imageFile.getBytes());
         return imageRepository.save(image);
     }
 
