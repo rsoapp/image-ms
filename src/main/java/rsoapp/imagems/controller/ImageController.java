@@ -64,7 +64,7 @@ public class ImageController {
 
 
 
-    @PutMapping("images/{imageId}")
+    @PutMapping("{imageId}")
     public ResponseEntity<Void> updateImage(@PathVariable Integer imageId, @RequestBody Image imageData) {
         try {
             imageService.updateImage(imageId, imageData);
@@ -74,7 +74,7 @@ public class ImageController {
         }
     }
 
-    @PutMapping("images/ad/{adId}")
+    @PutMapping("ad/{adId}")
     public ResponseEntity<AdImagesDto> updateAdImages(@PathVariable Integer adId, @RequestBody List<MultipartFile> adImageFiles) {
         try {
             return new ResponseEntity<>(imageService.updateAdImages(adId, adImageFiles), HttpStatus.OK);
@@ -86,7 +86,7 @@ public class ImageController {
 
 
 
-    @DeleteMapping("images/{imageId}")
+    @DeleteMapping("{imageId}")
     public ResponseEntity<Void> deleteImage(@PathVariable Integer imageId) {
         try {
             imageService.deleteImage(imageId);
@@ -96,7 +96,7 @@ public class ImageController {
         }
     }
 
-    @DeleteMapping("images/ad/{adId}")
+    @DeleteMapping("ad/{adId}")
     public ResponseEntity<Void> deleteAdImages(@PathVariable Integer adId) {
         try {
             imageService.deleteAdImages(adId);
